@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="Projeto-Base-ear-0.0.1-SNAPSHOT">
+        <wb-resource deploy-path="/" source-path="/target/m2e-wtp/ear-resources"/>
+        <wb-resource deploy-path="/" source-path="/EarContent" tag="defaultRootSource"/>
+        <dependent-module archiveName="Projeto-Base-ejb-0.0.1-SNAPSHOT.jar" deploy-path="/" handle="module:/resource/Projeto-Base-ejb/Projeto-Base-ejb">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="Projeto-Base-core-0.0.1-SNAPSHOT.jar" deploy-path="/lib" handle="module:/resource/Projeto-Base-core/Projeto-Base-core">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="Projeto-Base-web-0.0.1-SNAPSHOT.war" deploy-path="/" handle="module:/resource/Projeto-Base-web/Projeto-Base-web">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+    </wb-module>
+</project-modules>
