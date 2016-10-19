@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	
+	<ui:composition template="/layout/template-vazio.xhtml">
+
+		<!-- <ui:define name="tituloModulo">OPME</ui:define> -->
+	
+		<ui:define name="content">
+		
+			<div class="container" style="width:300px; margin: auto; top:60px;">
+				<div class="clear-both page-title">
+					<h2>#{msg['label.login']}</h2>
+				</div>
+				
+				<div style="width:90%; margin:18px auto 18px auto;">
+					<div style="width:100%; margin:8px;">
+						<p:outputLabel for="login" value="#{msg['label.matricula']}" styleClass="label"/>
+						<div style="width:100%;">
+							<p:inputText id="login" value="#{loginView.matricula}" 
+								styleClass="input-filed" maxlength="10" style="width:90%;"/>	
+						</div>
+					</div>
+					
+					<div style="width:100%; margin:8px;">
+						<p:outputLabel for="senha" value="#{msg['label.senha']}" styleClass="label"/>
+						<div style="width:100%">
+							<p:password id="senha" value="#{loginView.senha}" styleClass="input-filed" maxlength="30" 
+								style="width:90%;"/>
+						</div>
+					</div>
+					
+					<div style="width:100%; padding-top:10px; text-align: center;">
+						<p:commandButton value="#{msg['label.entrar']}" actionListener="#{loginView.autenticar}" ajax="false" style="width:95%;" />
+					</div>
+				</div>
+			</div>
+		
+		</ui:define>
+	</ui:composition>	
+</html>

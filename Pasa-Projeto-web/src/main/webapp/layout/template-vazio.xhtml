@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta content="text/html; charset=UTF-8" http-equiv="content-type"/>
+	    <meta name="viewport" content="width=device-width, initial-scale=1" />
+	    
+	   	<h:outputStylesheet library="bootstrap" name="css/bootstrap.css"/>
+		<h:outputStylesheet library="css" name="sistema.css"/>
+	</h:head>
+	
+	<h:body>
+		
+		<f:view contentType="text/html">
+		
+			<div class="container">
+				<p:dialog id="dialogModalExecutando" header="#{msg['dialog.emexecucao.aguarde']}" widgetVar="executando" 
+						dynamic="true" modal="true" draggable="false" closable="false" resizable="false" showHeader="false">  
+			    	<h:graphicImage library="img" name="loading.gif" width="32" height="32"/>
+				</p:dialog>
+			
+				<p:ajaxStatus onstart="PF('executando').show()" onsuccess="PF('executando').hide()" oncomplete="PF('executando').hide()" />
+					
+			</div>
+		
+			<p:ajaxExceptionHandler type="javax.faces.application.ViewExpiredException"
+	                onexception="window.location.href = '#{request.contextPath}/login.xhtml'" />
+			
+			<p:layout fullPage="true">
+			
+				<p:layoutUnit position="north">
+			        <ui:include src="header.xhtml" />
+			    </p:layoutUnit>
+ 
+			    <p:layoutUnit position="center">
+					
+					<div class="content">
+					
+						<div class="clear-both titulo">
+							<ui:insert name="tituloModulo" />
+						</div>
+						
+						<h:form id="form_content">	
+							<p:messages for="msgs" autoUpdate="true" closable="true" globalOnly="true" escape="false" />
+						
+							<ui:insert name="content" />
+						</h:form>
+					</div>
+					
+			    </p:layoutUnit>
+		    
+		    </p:layout>
+			
+		</f:view>
+	</h:body>
+</html>

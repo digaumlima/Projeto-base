@@ -1,0 +1,193 @@
+@charset "utf-8";
+html {
+  font-size: 62.5%; /* 10px */
+}
+
+body {
+	font-size: 12px;
+	font-family: Arial, Helvetica, sans-serif;
+	margin: 5px !important;
+	font-weight: normal;
+}
+
+header {
+	padding: 5px 0px;
+	margin-bottom: 20px;
+	height: 85px;
+	background: linear-gradient(#ccffe5, #ffffff);
+	color: #616161;
+	box-shadow: 0px 2px 2px #ffffff;
+}
+
+.footer{
+    padding-top:6px;
+    text-align: center;
+}
+
+.footer, .content{
+	position: relative;
+}
+
+.footer, .footer a{
+	color: #d9d9d9;
+	font-size:9px;
+	font-weight: bold;
+}	
+
+.footer div a:link, 
+.footer div a:visited, 
+.footer div a:hover, 
+.footer div a:active {
+	text-decoration:none;
+}
+
+.label{
+	font-weight: bold;
+	color:#144c6d;
+	padding: 0px !important;
+}
+
+.inputTextModal{
+	width: 100px;
+}
+
+.titulo{
+	margin: 10px;
+	font-family: Arial;
+	font-size: 20px;
+	color: #144c6d !important;
+	font-weight: bolder;
+}
+
+.container {
+	width:1060px;
+	margin:0 auto;	
+	border: 1px solid #E8E8E8;
+	-webkit-border-radius: 6px; 
+	-moz-border-radius: 6px; 
+	border-radius: 6px; 
+}
+
+.login-form{
+  width:350px;
+  padding:40px 30px;
+  background:#eee;
+  @include border-radius(4px);
+  margin:auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top:50%;
+  @include translateY(-50%);
+}
+.form-group{
+  position: relative;
+  margin-bottom:15px;
+}
+.form-control{
+  width:100%;
+  height:50px;
+  border:none;
+  padding:5px 7px 5px 15px;
+  background:#fff;
+  color:#666;
+  border:2px solid #ddd;
+  @include border-radius(4px);
+    &:focus, &:focus + .fa{
+      border-color:#10CE88;
+      color:#10CE88;
+    }
+}
+.form-group .fa{
+  position: absolute;
+  right:15px;
+  top:17px;
+  color:#999;
+}
+.log-status.wrong-entry {
+ @include animation( wrong-log 0.3s);
+}
+.log-status.wrong-entry .form-control, .wrong-entry .form-control + .fa {
+  border-color: #ed1c24;
+  color: #ed1c24;
+}
+.log-btn{
+  background:#0AC986;
+  dispaly:inline-block;
+  width:100%;
+  font-size:16px;
+  height:50px;
+  color:#fff;
+  text-decoration:none;
+  border:none;
+  @include border-radius(4px);
+}
+
+#conteudo {
+	padding: 0px 8px;;
+	widht: 68%;
+}
+
+#usuarioHeader {
+	height: 45px;
+	font-weight: bold;
+	padding: 0px 20px;
+}
+
+#usuarioHeader .ui-widget-content {
+	background-color:#fff !important;
+}
+
+/************************************ customizacao do css do jsf *********************************************************/
+
+.ui-layout-north {
+	border: 1px solid #183E54 !important;
+	padding: 0px !important;
+}
+
+.ui-layout-north .ui-widget-content {
+	background-color:#183E54 !important;
+}
+
+.ui-layout-south {
+	border: 1px solid #183E54 !important;
+	padding: 0px !important;
+}
+
+.ui-layout-south .ui-widget-content {
+	background-color:#183E54 !important;
+}
+
+.ui-layout-unit-header-title {
+	color:#0088CC;
+}
+
+.ui-panelgrid-cell .label {
+    border-style: none !important;
+}
+
+.ui-datatable-odd {
+    background: #ffffff;
+}
+
+.ui-datatable-even {
+    background: #F2F5F9;
+}
+
+
+.select-lateral {
+     width: 190px !important;
+}
+
+.formularioPadrao {
+	width: 100%;
+    margin-top: 20px;
+}
+
+.formularioPadrao tr td{
+	padding: 5px 0px 5px 10px;
+}
+
+.colunaAcao {
+	width: 80px;
+}

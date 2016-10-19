@@ -1,0 +1,1 @@
+INSERT INTO CONFIGURACAO (NM_CAMINHO_UPLOAD, NM_CAMINHO_URL_ANVISA, NM_CAMINHO_URL_AUTH) VALUES ('C:\\Pasa\\documentos\\opme\\', 'http://login.planopasa.com.br/restapi/acesso/validar');

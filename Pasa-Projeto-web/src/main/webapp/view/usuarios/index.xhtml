@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"  
+ 	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+	
+<ui:composition template="../../layout/template.xhtml">
+
+	<ui:define name="tituloModulo">#{msg['page.titulo.manter.usuario']}</ui:define>
+
+	<ui:define name="content">
+		<h:form id="form_content">
+			<h:panelGrid columns="1" styleClass="formularioPadrao">
+	
+				<p:outputLabel for="matricula" value="#{msg['label.matricula']}" styleClass="label"/>
+				<p:inputText id="matricula" value="#{usuariosView.matricula}"/>
+	
+				<p:outputLabel for="perfil" value="#{msg['label.perfil']}" styleClass="label"/>
+				<p:selectManyCheckbox id="perfil" value="#{usuariosView.listaIdPerfilSelecionado}" layout="pageDirection">
+					<f:selectItems value="#{usuariosView.listaPerfil}" var="perfil" itemLabel="#{perfil.nome}" itemValue="#{perfil.id}" />
+				</p:selectManyCheckbox>
+							
+				<p:commandButton rendered="#{usuariosView.usuarioSelecionado == null}" global="false" value="#{msg['label.btn.incluir']}" action="#{usuariosView.incluirUsuario()}" icon="#{msg['ui-icon-circle-plus']}" update=":form_content:panelUsuariosDT" />
+				<p:commandButton rendered="#{usuariosView.usuarioSelecionado != null}" global="false" value="#{msg['label.btn.alterar']}" action="#{usuariosView.alterarUsuario()}" icon="#{msg['ui-icon-pencil']}" update=":form_content:panelUsuariosDT" />
+			</h:panelGrid>			
+			
+			<h:panelGroup id="panelUsuariosDT" layout="block" style="width: 100%; font-size:11px !important; text-align: center;">
+				<p:dataTable id="pesquisaDT" value="#{usuariosView.listaUsuarios}"
+					var="usuario" rowKey="#{usuario.id}"
+					rendered="#{usuariosView.listaUsuarios != null}" rows="10"
+					emptyMessage="#{msg['datatable.lista.nenhumResultado']}"
+					paginator="#{usuariosView.listaUsuarios.size() > 10 ? true : false}" paginatorPosition="bottom">
+	
+					<p:column headerText="#{msg['label.matricula']}">
+						<h:outputText value="#{usuario.matricula}" />
+					</p:column>
+	
+			        <p:column headerText="#{msg['label.perfil']}">
+						<ui:repeat var="perfil" value="#{usuario.perfilList}">
+					       <h:outputText value="#{perfil.nome}"/>
+					   </ui:repeat>
+			        </p:column>
+			        
+			        <p:column headerText="#{msg['label.coluna.acoes']}" styleClass="colunaAcao">
+	            		<p:commandButton icon="ui-icon-trash" alt="#{msg['label.coluna.excluir']}" action="#{usuariosView.excluirUsuario(usuario.id)}"
+	                		global="false" update=":form_content:panelUsuariosDT" />
+	                		
+	                	<p:commandButton icon="ui-icon-pencil" alt="#{msg['label.coluna.editar']}" action="#{usuariosView.editarUsuario(usuario)}"
+	                		global="false" update="@form" />	
+	        		</p:column>
+	
+				</p:dataTable>
+			
+			</h:panelGroup>
+		</h:form>				
+
+	</ui:define>
+</ui:composition>
+</html>

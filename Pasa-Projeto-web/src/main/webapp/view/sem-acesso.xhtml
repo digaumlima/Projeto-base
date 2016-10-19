@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<h:outputStylesheet library="css" name="default.css"/>
+	<title>
+		<h:outputText value="#{msg['page.title.app']}" /> - <ui:insert name="pageTitle"></ui:insert>
+	</title>
+</h:head>
+
+<h:body>
+	<f:view contentType="text/html">
+		<div class="container">
+		
+			<ui:include src="layout/header.xhtml"/>
+			
+			<div style="width: 60%; margin: auto;">	
+				<div style='float:left; width:65px;'>
+					<h:graphicImage library="img" name="file-notfound.png" width='64' height='64' alt="Sem permissão de acesso"/>
+				</div>
+				<div style="color:red; font-size: 18px; float:left; margin-top: 20px;">
+					Você não tem permissão de acesso à funcionalidade solicitada.
+				</div>
+			</div>
+		</div>
+	</f:view>
+</h:body>
+</html>
